@@ -1,13 +1,11 @@
 import { Button, Flex, Input, Text, VStack } from "@chakra-ui/react";
 import Card from "../../../../components/Card/Card";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import FormSelect from "../../../../components/Form/FormSelect/FormSelect";
 import useVehicle from "../../../../hooks/useVehicle";
 import usePortifolio from "../../../../hooks/usePortifolio";
 
-import ReactSelect from "react-select";
 
-import makeAnimated from "react-select/animated";
 
 type AddCalendarProps = {
   onCancel: () => void;
@@ -15,11 +13,10 @@ type AddCalendarProps = {
 };
 
 function AddCalendar({ onCancel, onSubmit }: AddCalendarProps) {
-  const { register, handleSubmit, control, getValues } = useFormContext();
+  const { register, handleSubmit, } = useFormContext();
 
   const { vehicles } = useVehicle();
   const { portifolio } = usePortifolio();
-  const animatedComponents = makeAnimated();
 
   return (
     <Card>

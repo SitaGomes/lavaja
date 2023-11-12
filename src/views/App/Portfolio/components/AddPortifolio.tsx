@@ -3,7 +3,6 @@ import {
   AccordionButton,
   AccordionItem,
   AccordionPanel,
-  Box,
   Button,
   Flex,
   HStack,

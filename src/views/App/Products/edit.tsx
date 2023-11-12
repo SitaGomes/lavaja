@@ -78,7 +78,7 @@ function EditVehicle() {
             <FormSelect name="owner" label="Dono" register={register}>
               {clients.map((client, index) => (
                 <option key={index} value={client.id}>
-                  {client.name}
+                  {client.nome}
                 </option>
               ))}
             </FormSelect>

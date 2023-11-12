@@ -89,7 +89,7 @@ function Portifolio() {
 
   const [steps, setSteps] = useState<number>(Steps.First);
 
-  const { portifolio, addPortifolio } = usePortifolio();
+  const { portifolio } = usePortifolio();
 
   const methods = useForm({
     resolver: yupResolver(schema),

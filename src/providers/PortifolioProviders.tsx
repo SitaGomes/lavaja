@@ -6,13 +6,11 @@ import useGetPortifolio from "../hooks/custom/query/useGetPortifolio";
 type PortifolioContextType = {
   portifolio: PortifolioSchema[];
   addPortifolio: (vehicle: PortifolioSchema) => void;
-  editPortifolio: (vehicle: PortifolioSchema) => void;
 };
 
 export const PortifolioContext = createContext<PortifolioContextType>({
   portifolio: [],
   addPortifolio: () => {},
-  editPortifolio: () => {},
 });
 
 type PortifolioProviderProps = React.PropsWithChildren<unknown>;
@@ -30,7 +28,6 @@ const PortifolioProvider: React.FC<PortifolioProviderProps> = ({
     setPortifolio((v) => [...v, portifolio]);
   };
 
-  const editPortifolio = (portifolio: PortifolioSchema) => {};
 
   useEffect(() => {
     setPortifolio(data || []);
@@ -38,7 +35,7 @@ const PortifolioProvider: React.FC<PortifolioProviderProps> = ({
 
   return (
     <PortifolioContext.Provider
-      value={{ portifolio, addPortifolio, editPortifolio }}
+      value={{ portifolio, addPortifolio }}
     >
       {children}
     </PortifolioContext.Provider>

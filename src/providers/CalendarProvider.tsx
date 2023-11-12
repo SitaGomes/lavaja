@@ -5,13 +5,11 @@ import { CalendarSchema } from "../views/App/Calendar/Calendar";
 type CalendarProviderType = {
   calendar: CalendarSchema[];
   addToCalendar: (client: CalendarSchema) => void;
-  editCalendar: (client: CalendarSchema) => void;
 };
 
 export const CalendarContext = createContext<CalendarProviderType>({
   calendar: [],
   addToCalendar: () => {},
-  editCalendar: () => {},
 });
 
 type CalendarProviderProps = React.PropsWithChildren<unknown>;
@@ -26,12 +24,12 @@ const CalendarProvider: React.FC<CalendarProviderProps> = ({ children }) => {
     setCalendar((v) => [...v, calendar]);
   };
 
-  const editCalendar = (calendar: CalendarSchema) => {
+  // const editCalendar = (calendar: CalendarSchema) => {
     
-  };
+  // };
 
   return (
-    <CalendarContext.Provider value={{ calendar, addToCalendar, editCalendar }}>
+    <CalendarContext.Provider value={{ calendar, addToCalendar }}>
       {children}
     </CalendarContext.Provider>
   );
