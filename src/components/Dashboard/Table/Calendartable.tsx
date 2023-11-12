@@ -21,7 +21,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { BsPencilSquare } from "react-icons/bs";
-import { AdicionalSchema } from "../../../views/App/Portfolio/components/Adicionals/Adicionals";
+import { AdicionalSchema } from "../../../views/App/Portfolio/Portfolio";
 
 export type CalendarRowObj = {
   id: "";
