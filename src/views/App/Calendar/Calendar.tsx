@@ -1,11 +1,8 @@
 import { Button, Flex, Icon, Text } from "@chakra-ui/react";
-import CalendarTable, {
-  CalendarRowObj,
-} from "../../../components/Dashboard/Table/Calendartable";
+import CalendarTable from "../../../components/Dashboard/Table/Calendartable";
 
 import { AiFillPlusCircle } from "react-icons/ai";
 import Card from "../../../components/Card/Card";
-import { Row } from "@tanstack/react-table";
 
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -51,13 +48,6 @@ function Vehicles() {
     }
   }, [isTokenValid, navigateTo]);
   const [steps, setSteps] = useState<number>(Steps.First);
-  const [edit, setEdit] = useState<boolean>(false);
-  const [service, setService] = useState("");
-  const [vehicles, setVehicles] = useState("");
-  const [date, setDate] = useState("");
-  const [adicionals, setAdicionals] = useState<AdicionalSchema[]>(
-    [] as AdicionalSchema[]
-  );
 
   const { addToCalendar, calendar } = useCalendar();
 
@@ -69,23 +59,7 @@ function Vehicles() {
       date: "",
       adicionals: [],
     },
-    values: {
-      service: service,
-      vehicle: vehicles,
-      date: date,
-      adicionals: adicionals,
-    },
   });
-
-  const onEdit = ({ original }: Row<CalendarRowObj>) => {
-    console.log(original);
-    setService(original.service);
-    setVehicles(original.vehicle);
-    setDate(original.date);
-    setAdicionals(original.adicionals);
-    setEdit(true);
-    nextStep();
-  };
 
   const nextStep = () => {
     if (steps === Steps.First) {
@@ -96,16 +70,11 @@ function Vehicles() {
   const prevStep = () => {
     if (steps === Steps.Second) {
       methods.reset({ service: "", vehicle: "", date: "", adicionals: [] });
-      setEdit(false);
       setSteps(Steps.First);
     }
   };
 
   const onSubmit = (props: any) => {
-    if (edit) {
-      prevStep();
-      return;
-    }
     addToCalendar(props);
     prevStep();
   };
@@ -114,7 +83,7 @@ function Vehicles() {
     [Steps.First]: (
       <Card>
         <CalendarTable
-          onEdit={onEdit}
+          onEdit={() => {}}
           data={calendar.map((c) => ({ ...c, edit: true, id: "" })) || []}
         />
       </Card>

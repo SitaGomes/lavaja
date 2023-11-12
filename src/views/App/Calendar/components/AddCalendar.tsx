@@ -28,7 +28,7 @@ function AddCalendar({ onCancel, onSubmit }: AddCalendarProps) {
           <VStack align={"flex-start"} w="100%">
             <FormSelect name="service" label="Serviço" register={register}>
               {portifolio.map((p) => (
-                <option value={p.name}>{p.name}</option>
+                <option value={p.titulo}>{p.titulo}</option>
               ))}
             </FormSelect>
           </VStack>
@@ -36,7 +36,7 @@ function AddCalendar({ onCancel, onSubmit }: AddCalendarProps) {
           <VStack align={"flex-start"} w="100%">
             <FormSelect name="model" label="Modelo" register={register}>
               {vehicles.map((v) => (
-                <option value={v.plate}>{v.plate}</option>
+                <option value={v.id}>{v.id}</option>
               ))}
             </FormSelect>
           </VStack>
@@ -46,7 +46,7 @@ function AddCalendar({ onCancel, onSubmit }: AddCalendarProps) {
             <Input type="date" {...register("date")} />
           </VStack>
 
-          <VStack align={"flex-start"} w="100%">
+          {/* <VStack align={"flex-start"} w="100%">
             <Text>Adicionais</Text>
             <Controller
               control={control}
@@ -58,12 +58,12 @@ function AddCalendar({ onCancel, onSubmit }: AddCalendarProps) {
                   closeMenuOnSelect={false}
                   components={animatedComponents}
                   options={portifolio
-                    .filter((p) => p.name !== getValues().service)
-                    .map((p) => ({ value: p.adicionals.value, label: p.adicionals.label }))}
+                    .filter((p) => p.id !== getValues().service)
+                    .map((p) => ({ value: p.adicionais., label: p.adicionais.label }))}
                 />
               )}
             />
-          </VStack>
+          </VStack> */}
         </VStack>
 
         <Flex gap={"8"}>
